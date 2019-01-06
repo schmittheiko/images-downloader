@@ -11,7 +11,7 @@ class PagesFromUrlReaderTest {
 	@Test
 	void testGetAllPagesFromUrl1() {
 		try {
-			HashSet<String> pages = new HashSet();
+			HashSet<String> pages = new HashSet<String>();
 			assertEquals(6, (PagesFromUrlReader.getAllPagesFromUrl("https://on-the-bike.eu", pages).size()));
 
 		} catch (Exception e) {
@@ -22,7 +22,7 @@ class PagesFromUrlReaderTest {
 	@Test
 	void testGetAllPagesFromUrl2() {
 		try {
-			HashSet<String> pages = new HashSet();
+			HashSet<String> pages = new HashSet<String>();
 			assertEquals(6, (PagesFromUrlReader.getAllPagesFromUrl("https://www.naturalcycles.com", pages).size()));
 
 		} catch (Exception e) {

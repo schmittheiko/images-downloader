@@ -9,20 +9,18 @@ public class ImagesFromUrlReader {
 
 	public static String[] getImageUrls(String urlInput) throws Exception {
 
-		System.out.println(urlInput + " has the following images:");
-
 		Document doc = Jsoup.connect(urlInput).get();
 		Elements images = doc.select("img");
-
 		String[] imageUrls = new String[images.size()];
 
+		System.out.println(urlInput + " has the following images:");		
+		
 		for (int i = 0; i < images.size(); i++) {
 			Element image = images.get(i);
-			System.out.println(image.attr("src"));
 			imageUrls[i] = image.attr("src");
+			System.out.println(imageUrls[i]);
 		}
 
 		return imageUrls;
-	}
-	
+	}	
 }

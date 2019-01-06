@@ -10,9 +10,12 @@ public class DirectoryCreator {
 
 		for (int i = 0; i < paths.length; i++) {
 			// example for a path: /path/to/directory
-			System.out.println("going to try to create the following directory: " + paths[i]);
+			System.out.println("going to create the following directory: " + paths[i]);
 			Files.createDirectories(Paths.get(paths[i]));
 		}
 	}
-	
+
+	public static void createDirectories(String pageUrl) throws IOException {
+		createDirectories(new String[] { pageUrl });
+	}
 }

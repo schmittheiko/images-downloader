@@ -17,5 +17,19 @@ class ImageDownloaderTest {
 			fail(e.getMessage());
 		}
 	}
+	
+	@Test
+	void testDownloadImageToPath() {
+		try {
+			String path="downloadedImages";
+			
+			ImageDownloader.downloadImageToPath(
+					"https://on-the-bike.eu/wp-content/uploads/2018/05/img-20180529-wa0018228974493.jpg",
+					path,"Image001.jpg");
+
+		} catch (Exception e) {
+			fail(e.getMessage());
+		}
+	}	
 
 }
