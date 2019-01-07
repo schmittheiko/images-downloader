@@ -29,5 +29,17 @@ class PagesFromUrlReaderTest {
 			fail(e.getMessage());
 		}
 	}
+
+	@Test
+	void testGetAllPagesFromUrl3() {
+		try {
+			HashSet<String> pages = new HashSet<String>();
+			pages= PagesFromUrlReader.getAllPagesFromUrl("https://on-the-bike.eu", pages);
+			assertFalse(pages.contains("https://on-the-bike.eu/") && pages.contains("https://on-the-bike.eu"));
+
+		} catch (Exception e) {
+			fail(e.getMessage());
+		}
+	}	
 	
 }

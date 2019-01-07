@@ -8,6 +8,11 @@ public class PageUrlToDirectoryPathConverter {
 		String directoryPath = "";
 		directoryPath = pageUrl.substring(pageUrl.indexOf("/", 8) + 1);
 
+		// check if the pageUrl is the super directory
+		if(directoryPath.equals(pageUrl)) {
+			directoryPath="";
+		}
+		
 		// check if question mark is included
 		// e.g. category/learning/page/2/?lang=de
 		if (directoryPath.contains("?")) {

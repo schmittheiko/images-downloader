@@ -34,6 +34,12 @@ class PageUrlToDirectoryPathConverterTest {
 		assertEquals(expectedDirectoryPath, PageUrlToDirectoryPathConverter.convertPageUrlToDirectoryPath(pageUrl));
 	}
 	
+	@Test
+	void testConvertPageUrlToDirectoryPath5() {
+		String pageUrl = "https://on-the-bike.eu";
+		String expectedDirectoryPath = "";
+		assertEquals(expectedDirectoryPath, PageUrlToDirectoryPathConverter.convertPageUrlToDirectoryPath(pageUrl));
+	}
 	
 	
 }

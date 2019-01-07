@@ -18,21 +18,28 @@ public class PagesFromUrlReader {
 
 		for (int i = 0; i < links.size(); i++) {
 			Element link = links.get(i);
-			pages.add(link.attr("href"));
+			pages.add(cleanUrl(link.attr("href")));
 		}
 
 		Iterator<String> iterator = pages.iterator();
 		while (iterator.hasNext()) {
 			String pageUrl = iterator.next();
 			if (!pageUrl.equals(urlInput) && !pagesInput.contains(pageUrl)) {
-				System.out.println("going to crawl for images in " + pageUrl);
+				System.out.println("crawling for images in " + pageUrl);
 				getAllPagesFromUrl(pageUrl, pagesInput);
 			}
 		}
 
-		pagesInput.add(urlInput);
+		pagesInput.add(cleanUrl(urlInput));
 
 		return pagesInput;
+	}
+	
+	private static String cleanUrl(String url) {
+		if(url.endsWith("/")) {
+			url= url.substring(0, url.length()-1);
+		}
+		return url;
 	}
 
 }
