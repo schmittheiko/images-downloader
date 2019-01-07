@@ -4,6 +4,7 @@ import java.util.Iterator;
 import Utility.ConsoleReader;
 import Utility.DirectoryCreator;
 import Utility.ImageDownloader;
+import Utility.ImageTypeExtractor;
 import Utility.ImagesFromUrlReader;
 import Utility.PageUrlToDirectoryPathConverter;
 import Utility.PagesFromUrlReader;
@@ -38,7 +39,7 @@ public class ImagesDownloader {
 			String[] imageUrls = ImagesFromUrlReader.getImageUrls(pageUrl);
 
 			for (int i = 0; i < imageUrls.length; i++) {
-				ImageDownloader.downloadImageToPath(imageUrls[i], directoryPath, "Image" + i + ".jpg");
+				ImageDownloader.downloadImageToPath(imageUrls[i], directoryPath, "Image" + i, ImageTypeExtractor.getImageType(imageUrls[i]));
 			}
 		}
 	}

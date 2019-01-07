@@ -19,7 +19,7 @@ class ImageDownloaderTest {
 	}
 	
 	@Test
-	void testDownloadImageToPath() {
+	void testDownloadImageToPathWithoutFormatParameter() {
 		try {
 			String path="downloadedImages";
 			
@@ -30,6 +30,22 @@ class ImageDownloaderTest {
 		} catch (Exception e) {
 			fail(e.getMessage());
 		}
-	}	
+	}
+	
+	@Test
+	void testDownloadImageToPathWithFormatParameter() {
+		try {
+			String path="downloadedImages";
+			
+			ImageDownloader.downloadImageToPath(
+					"https://storage.googleapis.com/nc-public/hcp/cms-content/2018/07/45342acc-brains.svg",
+					path,"Image001","svg");
+
+		} catch (Exception e) {
+			fail(e.getMessage());
+		}
+	}		
+	
+	
 
 }

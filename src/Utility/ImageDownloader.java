@@ -23,19 +23,25 @@ public class ImageDownloader {
 		out.close();
 	}
 
-	public static void downloadImageToPath(String urlInput, String pathDownloadedImage, String imageName) throws Exception {
+	public static void downloadImageToPath(String urlInput, String pathDownloadedImage, String imageName)
+			throws Exception {
 
 		URL url = new URL(urlInput);
 		InputStream in = new BufferedInputStream(url.openStream());
-		OutputStream out = new BufferedOutputStream(new FileOutputStream(new File(pathDownloadedImage,imageName)));
+		OutputStream out = new BufferedOutputStream(new FileOutputStream(new File(pathDownloadedImage, imageName)));
 
 		for (int i; (i = in.read()) != -1;) {
 			out.write(i);
 		}
 		in.close();
 		out.close();
-		
-		System.out.println(imageName+" has been downloaded to "+pathDownloadedImage);
-	}	
-	
+
+		System.out.println(imageName + " has been downloaded to " + pathDownloadedImage);
+	}
+
+	public static void downloadImageToPath(String urlInput, String pathDownloadedImage, String imageName,
+			String imageFormat) throws Exception {
+		downloadImageToPath(urlInput, pathDownloadedImage, imageName + "." + imageFormat);
+	}
+
 }
