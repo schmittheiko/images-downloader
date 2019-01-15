@@ -1,5 +1,7 @@
 package Utility;
 
+import java.util.LinkedList;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -11,16 +13,23 @@ public class ImagesFromUrlReader {
 
 		Document doc = Jsoup.connect(urlInput).get();
 		Elements images = doc.select("img");
-		String[] imageUrls = new String[images.size()];
+		int numberOfImages = images.size();
+		LinkedList<String> imageUrls = new LinkedList();
 
-		System.out.println(urlInput + " has the following images:");		
+		System.out.println(urlInput + " has the following image landscape:");		
 		
-		for (int i = 0; i < images.size(); i++) {
+		for (int i = 0; i < numberOfImages; i++) {
 			Element image = images.get(i);
-			imageUrls[i] = image.attr("src");
-			System.out.println(imageUrls[i]);
+			String imageUrl = image.attr("src");
+			if(imageUrl.substring(0,4).equals("http")) {
+				imageUrls.add(imageUrl);
+				System.out.println(imageUrl);
+			}
+			else {
+				System.out.println("filtered: "+ imageUrl);
+			}
 		}
 
-		return imageUrls;
+		return imageUrls.toArray(new String[imageUrls.size()]);
 	}	
 }

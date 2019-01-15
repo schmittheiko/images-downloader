@@ -23,4 +23,14 @@ class ImagesDownloaderTest {
 			fail(e.getMessage());
 		}
 	}
+	
+	@Test
+	void testDownloadImagesFromSciencemag() {
+		try {
+			ImagesDownloader.downloadImages("https://www.sciencemag.org/");
+
+		} catch (Exception e) {
+			fail(e.getMessage());
+		}
+	}	
 }
